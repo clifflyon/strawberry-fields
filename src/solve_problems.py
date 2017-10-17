@@ -122,7 +122,7 @@ def agglomerate(field, partition, goal):
         if num_greenhouses <= goal:
             break
         score, _successors = successors_by_agglomeration(successors)
-        if len(_successors) == 0:
+        if not _successors:
             break
         successors = _successors
         num_greenhouses = len(successors[0])
@@ -171,8 +171,8 @@ def successors_by_agglomeration(partitions):
             count_overlaps = 0
             for greenhouse in greenhouse_list:
                 if (greenhouse[B] < new_house[T] or
-                    greenhouse[T] > new_house[B] or
-                    greenhouse[R] < new_house[L] or
+                        greenhouse[T] > new_house[B] or
+                        greenhouse[R] < new_house[L] or
                         greenhouse[L] > new_house[R]):
                     continue
                 count_overlaps += 1
@@ -218,7 +218,7 @@ def get_horizontal_runs(field):
             if point in berries:
                 buf.append(point)
             else:
-                if len(buf) > 0:
+                if buf:
                     if len(buf) > 1:
                         yield buf
                     buf = []
@@ -236,7 +236,7 @@ def get_vertical_runs(field):
             if point in berries:
                 buf.append(point)
             else:
-                if len(buf) > 0:
+                if buf:
                     if len(buf) > 1:
                         yield buf
                     buf = []
@@ -344,7 +344,7 @@ def main():
     parser.add_option("-i", "--input", dest="infile",
                       default="../data/rectangles.txt",
                       help="read data from FILENAME")
-    (options, args) = parser.parse_args()
+    (options, _) = parser.parse_args()
 
     total_cost = 0
     for problem in get_problems(options.infile):
