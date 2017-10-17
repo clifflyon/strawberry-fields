@@ -246,7 +246,7 @@ def get_vertical_runs(field):
 
 def assign_open_greenhouses(field, partition):
     """ assign any open greenhouses sequentially """
-    #greenhouse_list = field.greenhouses(partition)
+    # greenhouse_list = field.greenhouses(partition)
     berries = field.get_berries_in_rectangle(field.root_region)
     sp = sorted(partition, key=lambda x: x[AREA])
     for berry in berries:
@@ -256,8 +256,8 @@ def assign_open_greenhouses(field, partition):
                 is_assigned = True
                 break
         if not is_assigned:
-            #        if any([berry in r for r in partition]): # greenhouse_list]):
-            #            continue
+            # if any([berry in r for r in partition]): # greenhouse_list]):
+            #     continue
             partition.append(
                 make_rectangle(berry[0], berry[1], berry[0], berry[1]))
     return partition
@@ -351,10 +351,10 @@ def main():
         problem = StrawberryField(problem)
 
         if problem.num_rows > 50:
-            print "number of rows exceeds maximum of 50, skipping problem..."
+            print "number of rows exceeds maximum of 50, skipping..."
 
         if problem.num_cols > 50:
-            print "number of columns exceeds maximum of 50, skipping problem..."
+            print "number of columns exceeds maximum of 50, skipping..."
 
         if problem.maximum_greenhouses > 10:
             print "number of greenhouses too large, need an integer N such"

@@ -46,7 +46,7 @@ class StrawberryField(object):
         # return len(self.get_berries_in_rectangle(rectangle))
         num = 0
         for i in range(rectangle[T], rectangle[B] + 1):
-            #num += sum([1 for berry in self.rows[i] if berry in rectangle])
+            # num += sum([1 for berry in self.rows[i] if berry in rectangle])
             num += sum([1 for berry in self.rows[i]
                         if rectangle[L] <= berry[1] <= rectangle[R]])
         return num
