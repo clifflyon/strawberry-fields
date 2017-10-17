@@ -3,7 +3,9 @@ A rectangle class
 @author: clifford.lyon@gmail.com
 """
 from collections import namedtuple
+
 from memoize import Memoize
+
 T, L, B, R = 0, 1, 2, 3  # TOP, LEFT, BOTTOM, RIGHT indices
 
 

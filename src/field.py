@@ -7,9 +7,10 @@ to display a solution, to evaluate a covering, etc.
 
 """
 
-from rectangle import make_rectangle
-from memoize import Memoize
 import sys
+
+from memoize import Memoize
+from rectangle import make_rectangle
 
 LABELS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz"
 T, L, B, R = 0, 1, 2, 3
@@ -134,7 +135,7 @@ class StrawberryField(object):
         berries = self.get_berries_in_rectangle(rectangle)
         b_zero = [b[0] for b in berries]
         b_one = [b[1] for b in berries]
-        if len(berries):
+        if berries:
             origin = (min(b_zero), min(b_one))
             extent = (max(b_zero), max(b_one))
             return make_rectangle(origin[0], origin[1], extent[0], extent[1])

@@ -50,13 +50,14 @@ producing a total score of 1465.
 @author: clifford.lyon@gmail.com
 
 """
-from optparse import OptionParser
-from field import StrawberryField
-import sys
 import random
-from rectangle import make_rectangle
-from memoize import Memoize
+import sys
 from itertools import combinations
+from optparse import OptionParser
+
+from field import StrawberryField
+from memoize import Memoize
+from rectangle import make_rectangle
 
 T, L, B, R, COST, AREA = 0, 1, 2, 3, 4, 5
 MAX_SUCCESSORS = 100
